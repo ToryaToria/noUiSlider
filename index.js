@@ -18,20 +18,24 @@ noUiSlider.create(sliderElement, {
   },
   // значение, на котором стоит бегунок
   start: 80,
-// с какой стороны закрашивается слайдер, lower - до ползунка, upper - после 
+  // с какой стороны закрашивается слайдер, lower - до ползунка, upper - после 
   connect: 'lower',
 
   // форматирование значений ручки
   format: {
     to: function (value) {
-      return value;
+      // если число целое,
+      if (Number.isInteger(value)) {
+        // записываем без знаков после запятой (можно toFixed(0),не писать)
+        return value.toFixed(0);
+      }
+      //иначе - 1 знак после запятой
+      return value.toFixed(1);
     },
     from: function (value) {
-      //parseFloat - превращает строку в число (с плавающ. запятой)
       return parseFloat(value);
     },
   },
-
 });
 
 valueElement.value = 60;
