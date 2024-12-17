@@ -17,7 +17,7 @@ noUiSlider.create(sliderElement, {
     max: 100,
   },
   // значение, на котором стоит бегунок
-  start: 80,
+  start: 20,
   // с какой стороны закрашивается слайдер, lower - до ползунка, upper - после 
   connect: 'lower',
 
@@ -38,7 +38,7 @@ noUiSlider.create(sliderElement, {
   },
 });
 
-valueElement.value = 60;
+valueElement.value = 60; // ПОЧЕМУ это значение игнорируется?
 
 
 // sliderElement.noUiSlider.on('update', (...rest) => {
@@ -67,7 +67,7 @@ specialElement.addEventListener('change', (evt) => {
       start: 8,
 
     });
-    // sliderElement.noUiSlider.set(8);
+    sliderElement.noUiSlider.set(8);
 
   } else {
     // Цена и шаг по умолчанию
@@ -80,6 +80,6 @@ specialElement.addEventListener('change', (evt) => {
       start: 80,
     });
 
-    // sliderElement.noUiSlider.set(80);
+    sliderElement.noUiSlider.set(80);
   }
 });
